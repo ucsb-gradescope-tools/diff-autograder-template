@@ -1,3 +1,7 @@
 diffs.sh-reference
-diff.sh-student
+diffs.sh-student
 gs-diff-based-testing
+
+*.o
+*.pyc
+
