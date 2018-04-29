@@ -31,15 +31,29 @@ mkdir REFERENCE-SOLUTION
 Put your reference solution in this directory. This is what will be used to generate the expected output for tests. You must include a makefile either in the REFERENCE-SOLUTION or EXECUTION-FILES directories.
 
 
-## (optional) Create your execution files ##
+## (optional) Add execution files if your assignment needs them  ##
 
-Create a directory called EXECUTION-FILES:
+If the lab on submit.cs you are converting from has files under "EXECUTION-FILES", then
+create a directory called EXECUTION-FILES:
 
 ```
 mkdir EXECUTION-FILES
 ```
 
-All files in the EXECUTION-FILES directory will be present when the reference and student solutions are building/running. Use this directory to store your makefile, **unless** you expect students to upload their own. You can also use this directory to store any files you want to use in testing (e.g. to use as input for a test).
+All files in the EXECUTION-FILES directory will be present when the reference and student solutions are building/running. Use this directory to store any files you want to use in testing (e.g. to use as input for a test).
+
+
+## (optional) Add build files if your assignment needs them  ##
+
+If the lab on submit.cs you are converting from has files under "BUILD-FILES", then
+create a directory called BUILD-FILES:
+
+```
+mkdir BUILD-FILES
+```
+
+All files in the BUILD-FILES directory will be present when the reference and student solutions are building/running. Use this directory to store your makefile, **unless** you expect students to upload their own. You can also use this directory to store any source file for program code that should be present in the solution, but that the students are not uploading, e.g. secret tests, files that are supplied to the students that they should not modify.
+
 
 ## Write your tests ##
 
