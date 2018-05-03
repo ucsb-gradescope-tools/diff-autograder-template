@@ -1,0 +1,7 @@
+diffs.sh-reference
+diffs.sh-student
+gs-diff-based-testing
+
+*.o
+*.pyc
+

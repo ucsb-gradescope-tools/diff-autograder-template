@@ -8,30 +8,52 @@ Create an **empty** private repo for your autograder on github.ucsb.edu. Do not 
 
 Locally clone this repo (diff-autograder-template) into a directory with the same name as the repo you just created.
 
-> git clone https://github.com/ucsb-gradescope-tools/diff-autograder-template.git your-repo-name
+```
+git clone https://github.com/ucsb-gradescope-tools/diff-autograder-template.git your-repo-name
+```
 
 Push this to the remote repo:
 
-> cd your-repo-name
-> git remote add origin your-repo-url
-> git push origin master
+```
+cd your-repo-name
+git remote set-url origin your-repo-url
+git push origin master
+```
 
 ## Create your reference solution ##
 
 Create a directory called REFERENCE-SOLUTION:
 
-> mkdir REFERENCE-SOLUTION
+```
+mkdir REFERENCE-SOLUTION
+```
 
 Put your reference solution in this directory. This is what will be used to generate the expected output for tests. You must include a makefile either in the REFERENCE-SOLUTION or EXECUTION-FILES directories.
 
 
-## (optional) Create your execution files ##
+## (optional) Add execution files if your assignment needs them  ##
 
-Create a directory called EXECUTION-FILES:
+If the lab on submit.cs you are converting from has files under "EXECUTION-FILES", then
+create a directory called EXECUTION-FILES:
 
-> mkdir EXECUTION-FILES
+```
+mkdir EXECUTION-FILES
+```
 
-All files in the EXECUTION-FILES directory will be present when the reference and student solutions are building/running. Use this directory to store your makefile, **unless** you expect students to upload their own. You can also use this directory to store any files you want to use in testing (e.g. to use as input for a test).
+All files in the EXECUTION-FILES directory will be present when the reference and student solutions are building/running. Use this directory to store any files you want to use in testing (e.g. to use as input for a test).
+
+
+## (optional) Add build files if your assignment needs them  ##
+
+If the lab on submit.cs you are converting from has files under "BUILD-FILES", then
+create a directory called BUILD-FILES:
+
+```
+mkdir BUILD-FILES
+```
+
+All files in the BUILD-FILES directory will be present when the reference and student solutions are building/running. Use this directory to store your makefile, **unless** you expect students to upload their own. You can also use this directory to store any source file for program code that should be present in the solution, but that the students are not uploading, e.g. secret tests, files that are supplied to the students that they should not modify.
+
 
 ## Write your tests ##
 
@@ -39,8 +61,10 @@ All files in the EXECUTION-FILES directory will be present when the reference an
 
 In diffs.sh, write the tests you want Gradescope to run. See [this page](https://github.com/ucsb-gradescope-tools/gs-diff-based-testing/blob/master/README.md) for further documentation on the test format. For example, the test
 
-> #@test{"stdout":10}
-> ./helloWorld
+```
+#@test{"stdout":10}
+./helloWorld
+```
 
 will run the program `./helloWorld` and record its stdout and stderr. If the stdout from the reference and student programs match, the student is given 10 points; otherwise, they get 0 points. For further examples, see the `diffs.sh` file in [this sample repo](https://github.com/ucsb-gradescope-tools/sample-cpp-autograder).
 
@@ -50,7 +74,9 @@ To see what your reference output will be, run `./MAKE-REFERENCE.sh`. **Don't co
 
 At the top of `grade.sh`, copy all submission files from `/autograder/submission/` to the current directory. For example, if my assignment expects students to only turn in a file named `helloWorld.cpp`, my `grade.sh` would begin with:
 
-> cp /autograder/submission/helloWorld.cpp .
+```
+cp /autograder/submission/helloWorld.cpp .
+```
 
 **Only the files copied by `grade.sh` will be used for grading the student's assignment.**
 
