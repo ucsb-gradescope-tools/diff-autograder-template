@@ -16,7 +16,7 @@ Push this to the remote repo:
 
 ```
 cd your-repo-name
-git remote add origin your-repo-url
+git remote set-url origin your-repo-url
 git push origin master
 ```
 
