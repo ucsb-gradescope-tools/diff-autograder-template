@@ -1,5 +1,7 @@
 #apt-get install -y python python-pip python-dev
 
+apt-get update
+apt-get install -y rsync
 apt-get install -y g++
 apt-get install -y jsoncpp
 
